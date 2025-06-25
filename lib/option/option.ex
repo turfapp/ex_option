@@ -1,4 +1,4 @@
-defmodule Option.Option do
+defmodule ExOption.Option do
   @type some(t) :: {:some, t}
   @type nnone() :: :none
 
@@ -79,13 +79,13 @@ defmodule Option.Option do
 
   ## Examples
 
-      iex> unwrap!({:some, :hello})
+      iex> Option.unwrap!({:some, :hello})
       :hello
 
-      iex> unwrap!(:none)
+      iex> Option.unwrap!(:none)
       ** (RuntimeError) Called `Option.unwrap!()` on something other than a `:some` tuple
 
-      iex> unwrap!(:something_else)
+      iex> Option.unwrap!(:something_else)
       ** (RuntimeError) Called `Option.unwrap!()` on something other than a `:some` tuple
 
   """
@@ -99,13 +99,13 @@ defmodule Option.Option do
 
   ## Examples
 
-      iex> unwrap({:some, :hello}, :world)
+      iex> Option.unwrap({:some, :hello}, :world)
       :hello
 
-      iex> unwrap(:none, :world)
+      iex> Option.unwrap(:none, :world)
       :world
 
-      iex> unwrap(:something_else, :world)
+      iex> Option.unwrap(:something_else, :world)
       :world
 
   """

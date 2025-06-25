@@ -1,4 +1,4 @@
-defmodule Option.Either do
+defmodule ExOption.Either do
   @type ok(t) :: {:ok, t}
   @type error(e) :: {:error, e}
 
@@ -85,13 +85,13 @@ defmodule Option.Either do
 
   ## Examples
 
-      iex> unwrap!({:ok, :hello})
+      iex> Either.unwrap!({:ok, :hello})
       :hello
 
-      iex> unwrap!({:error, :world})
+      iex> Either.unwrap!({:error, :world})
       ** (RuntimeError) Called `Either.unwrap!()` on something other than an `:ok` tuple
 
-      iex> unwrap!(:something_else)
+      iex> Either.unwrap!(:something_else)
       ** (RuntimeError) Called `Either.unwrap!()` on something other than an `:ok` tuple
 
   """
@@ -104,13 +104,13 @@ defmodule Option.Either do
 
   ## Examples
 
-      iex> unwrap({:ok, :hello}, :world)
+      iex> Either.unwrap({:ok, :hello}, :world)
       :hello
 
-      iex> unwrap({:error, :hello}, :world)
+      iex> Either.unwrap({:error, :hello}, :world)
       :world
 
-      iex> unwrap(:something_else, :world)
+      iex> Either.unwrap(:something_else, :world)
       :world
 
   """

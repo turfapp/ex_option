@@ -3,12 +3,11 @@ defmodule Option.MixProject do
 
   def project do
     [
-      app: :option,
+      app: :ex_option,
       version: "0.1.0",
-      description: "THe option monad for Elixir.",
+      description: "The option and either monads for Elixir.",
       pakcage: package(),
-      elixir: "~> 1.18",
-      start_permanent: Mix.env() == :prod,
+      elixir: "~> 1.15",
       deps: deps()
     ]
   end
@@ -16,9 +15,9 @@ defmodule Option.MixProject do
   defp package do
     [
       licenses: ["MIT"],
-      files: ~w(CHANGELOG* config LICENSE* README* lib mix.exs priv .formatter.exs),
+      files: ~w(CHANGELOG* LICENSE* README* lib mix.exs priv .formatter.exs),
       links: %{
-        "GitHub" => "https://github.com/turfapp/option"
+        "GitHub" => "https://github.com/turfapp/ex_option"
       }
     ]
   end
