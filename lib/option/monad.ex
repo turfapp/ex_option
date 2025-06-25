@@ -9,7 +9,7 @@ defmodule ExOption.Monad do
   def bind({:error, value}, _f), do: Either.error(value)
   def bind({:ok, value}, f), do: f.(value)
 
-  # Any other tuple
+  # Any other value
   def bind(value, f), do: f.(value)
 
   @doc """
@@ -37,6 +37,13 @@ defmodule ExOption.Monad do
 
       iex> {:ok, "A"} ~> (fn value -> ok(value <> "B") end).() ~> (fn value -> ok(value <> "C") end).()
       {:ok, "ABC"}
+
+  If the function on the left-hand side of the operator does not return a monadic
+  value (e.g. not an `:ok`/`:error`/`:some` tuple or `:none`), then the resulting
+  value will also not be a monadic value.
+
+      iex> ok("Hello!") ~> String.reverse()
+      "!olleH"
 
   """
   defmacro left ~> right do

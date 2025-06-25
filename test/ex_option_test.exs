@@ -1,6 +1,5 @@
 defmodule ExOptionTest do
   use ExUnit.Case
-
   use ExOption
 
   doctest ExOption
