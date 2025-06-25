@@ -1,18 +1,7 @@
 defmodule Option do
-  @moduledoc """
-  Documentation for `Option`.
-  """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Option.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  defmacro __using__(_opts) do
+    quote do
+      import Option.{Either, Functor, Monad, Option}
+    end
   end
 end
